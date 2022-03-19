@@ -7,6 +7,8 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 async function main() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+
+  // https://github.com/puppeteer/puppeteer/issues/6904
   const streamer = new PuppeteerStreamer(page as unknown as Page, {
     // ffmpegPath: '/path/to/ffmpeg',
     recorder: 'cdp',
