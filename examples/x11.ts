@@ -5,10 +5,8 @@ import { PuppeteerStreamer, Page, ensureRequiredX11Args } from '../src';
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function main() {
-  const { width, height } = { width: 1920, height: 1080 };
   const options = ensureRequiredX11Args({
-    defaultViewport: { width, height },
-    args: [`--window-size=${width},${height}`, '--autoplay-policy=no-user-gesture-required'],
+    args: [`--window-size=1920,1080`, `--start-fullscreen`, '--autoplay-policy=no-user-gesture-required'],
   });
 
   console.log('Launching browser with options:', options);
@@ -29,10 +27,7 @@ async function main() {
         .outputOptions('-movflags', 'faststart')
         .outputFormat('mp4')
         .output(join(process.cwd(), 'output.mp4')),
-    frameSize: {
-      width: 1920,
-      height: 1080,
-    },
+    frameSize: { width: 1920, height: 1080 },
     fps: 60,
   });
 

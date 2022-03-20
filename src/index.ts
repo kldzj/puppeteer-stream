@@ -21,7 +21,7 @@ export type OutputModifier = (command: FfmpegCommand) => MaybePromise<FfmpegComm
 
 export interface PuppeteerStreamerOptions {
   /**
-   * Which recorder to use
+   * Underlying recorder to be used
    *
    * - 'cdp': use the CDP Page.startScreencast recorder
    * - 'x11': use the ffmpeg x11grab recorder
@@ -57,11 +57,6 @@ export interface PuppeteerStreamerOptions {
     height: number;
   };
   /**
-   * Aspect ratio
-   * @default '16:9'
-   */
-  aspectRatio: string;
-  /**
    * Output options
    */
   output: OutputOptions | OutputModifier;
@@ -75,7 +70,6 @@ const defaultOptions: PuppeteerStreamerOptions = {
   recorder: 'cdp',
   fps: 30,
   threads: 1,
-  aspectRatio: '16:9',
   frameSize: {
     width: 1280,
     height: 720,

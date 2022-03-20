@@ -12,7 +12,7 @@ export function ensureRequiredX11Args(options?: PuppeteerNodeLaunchOptions): Pup
   return {
     ...options,
     headless: false,
-    args: [...(options?.args ?? []), '--start-fullscreen', '--disable-infobars'],
+    args: [...(options?.args ?? []), '--disable-infobars'],
     ignoreDefaultArgs:
       typeof options?.ignoreDefaultArgs === 'boolean'
         ? options.ignoreDefaultArgs

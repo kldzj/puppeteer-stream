@@ -15,7 +15,7 @@ export class X11Transcoder extends BaseTranscoder {
   }
 
   protected getInput(): string {
-    return `:${this.screen}`;
+    return `:${this.screen}.0`;
   }
 
   protected getInputFPS(): number {
@@ -33,11 +33,9 @@ export class X11Transcoder extends BaseTranscoder {
   protected prepareCommand(): void {
     this._command
       .size(this.getFrameSize())
-      .aspectRatio(this.streamer.options.aspectRatio)
       .inputFPS(this.getInputFPS())
       .outputFPS(this.getInputFPS())
-      .videoCodec(this.getVideoCodec())
-      .aspectRatio(this.streamer.options.aspectRatio);
+      .videoCodec(this.getVideoCodec());
   }
 
   public async stop(): Promise<this> {

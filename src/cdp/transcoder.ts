@@ -31,7 +31,6 @@ export class CDPTranscoder extends BaseTranscoder {
       .inputOptions('-probesize', '200M')
       .videoCodec(this.getVideoCodec())
       .inputFPS(this.getInputFPS())
-      .outputFPS(this.streamer.options.fps)
-      .aspectRatio(this.streamer.options.aspectRatio);
+      .outputFPS(this.streamer.options.fps);
   }
 }
